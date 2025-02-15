@@ -3,6 +3,7 @@ import { Outlet, useNavigation } from "react-router-dom";
 import Header from "./Header";
 import CartOverview from "../features/cart/CartOverview";
 import Loader from "./Loader";
+import { Suspense } from "react";
 
 export default function AppLayout() {
   const navigation = useNavigation();
@@ -14,9 +15,11 @@ export default function AppLayout() {
       <Header />
 
       <div className="scrollbar-hide overflow-scroll">
-        <main className="mx-auto max-w-4xl">
-          <Outlet />
-        </main>
+        <Suspense fallback={<Loader />}>
+          <main className="mx-auto max-w-4xl">
+            <Outlet />
+          </main>
+        </Suspense>
       </div>
 
       <CartOverview />
