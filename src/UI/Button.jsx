@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const base =
   "inline-block rounded-full bg-yellow-400  text-sm font-semibold uppercase tracking-wide text-stone-800 transition-colors duration-300 hover:bg-yellow-300 focus:outline-none focus:ring focus:ring-yellow-300 focus:ring-offset-2 disabled:cursor-not-allowed ";
 
-export default function Button({ children, disabled, to, type }) {
+export default function Button({ children, disabled, to, type, onClick }) {
   const styles = {
     primary: base + " px-4 py-2 md:px-6 md:py-3",
     small: base + " px-2 py-2 md:px-6 md:py-3 text-xs",
@@ -16,6 +16,14 @@ export default function Button({ children, disabled, to, type }) {
         {children}
       </Link>
     );
+
+  if (onClick)
+    return (
+      <button disabled={disabled} className={styles[type]} onClick={onClick}>
+        {children}
+      </button>
+    );
+
   return (
     <button disabled={disabled} className={styles[type]}>
       {children}
