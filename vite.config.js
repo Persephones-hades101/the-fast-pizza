@@ -6,6 +6,10 @@ export default defineConfig({
   server: {
     host: "0.0.0.0",
     fs: { strict: false },
+    // https: {
+    //   key: "./myapp-privateKey.key",
+    //   cert: "./myapp.crt",
+    // },
   },
   plugins: [react()],
 });
