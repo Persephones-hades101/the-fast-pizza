@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { formatCurrency } from "../../utils/helpers";
+import { getTotalCartPrice } from "./cartSlice";
 
 function CartOverview() {
   const numPizzas = useSelector((store) =>
@@ -8,11 +9,7 @@ function CartOverview() {
       return total + curr.quantity;
     }, 0),
   );
-  const totalPrice = useSelector((store) =>
-    store.cart.cart.reduce((total, curr) => {
-      return total + curr.totalPrice;
-    }, 0),
-  );
+  const totalPrice = useSelector(getTotalCartPrice);
 
   if (!numPizzas) return null;
 

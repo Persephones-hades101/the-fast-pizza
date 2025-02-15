@@ -43,6 +43,12 @@ export const getCurrentQuantityById = (id) => (store) => {
   return store.cart.cart.find((item) => item.pizzaId === id)?.quantity ?? 0;
 };
 
+export const getTotalCartPrice = (store) => {
+  return store.cart.cart.reduce((total, curr) => {
+    return total + curr.totalPrice;
+  }, 0);
+};
+
 export const {
   addItem,
   deleteItem,
