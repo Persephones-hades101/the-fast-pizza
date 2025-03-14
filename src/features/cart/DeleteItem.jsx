@@ -1,7 +1,7 @@
 import Button from "../../UI/Button";
 import { useDispatch } from "react-redux";
 import { deleteItem } from "./cartSlice";
-import UpdateItemQuantity from "./updateItemQuantity";
+import UpdateItemQuantity from "./UpdateItemQuantity";
 
 export default function DeleteItem({ pizzaId }) {
   const dispatch = useDispatch();
